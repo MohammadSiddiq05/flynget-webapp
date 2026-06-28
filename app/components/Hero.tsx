@@ -4,7 +4,7 @@ import heroimg from "../../public/heroing.png";
 import worldmap from "../../public/mapimg.png";
 
 export default function Hero() {
-  const features = ["Up to 70% cheaper", "Delivery in 3-7 days", "Verified travelers", "Escrow protected"];
+  const features = ["Up to 60% cheaper", "Delivery in 3-7 days", "Verified travelers", "Escrow protected"];
 
   return (
     <section className="max-w-7xl mx-auto px-6 pt-12 pb-20 grid md:grid-cols-2 gap-12 items-center">
