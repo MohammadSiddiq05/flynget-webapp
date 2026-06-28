@@ -1,46 +1,119 @@
-import { StarIcon } from "./icons";
+// app/components/Testimonials.tsx
 
-interface Testimonial {
-  name: string;
-  country: string;
-  quote: string;
-}
-
-const items: Testimonial[] = [
-  { name: "Sarah Johnson", country: "USA", quote: "Got my shopping haul in 3 days for a fraction of the shipping cost. The traveler was verified and super friendly." },
-  { name: "Ahmed Khan", country: "Pakistan", quote: "As a traveler, this is by far the easiest way to earn extra cash on flights I was already taking." },
-  { name: "Maria Lopez", country: "Spain", quote: "Escrow payment made me feel safe the whole time. Will definitely use Bring again." },
-  { name: "James Carter", country: "UK", quote: "Found someone flying my exact route within hours. The whole process felt secure and transparent." },
-  { name: "Fatima Noor", country: "UAE", quote: "Saved almost 60% compared to international shipping. Highly recommend it to everyone." },
-  { name: "David Kim", country: "South Korea", quote: "Smooth communication, verified profile, and on-time delivery. Exactly what I needed." },
+const reviews = [
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
+  {
+    name: "Sara Anwar",
+    location: "PK, Pakistan",
+    text: "Got my iPhone from the US in 2 days for a fraction of the shipping cost. The traveler was verified and super friendly.",
+  },
 ];
 
-export default function Testimonials() {
-  return (
-    <section className="bg-neutral-50 py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="text-xs font-bold tracking-wider text-brand">TESTIMONIALS</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-black">Loved by Shoppers and Travelers Worldwide</h2>
-        </div>
+const Stars = () => (
+  <div className="flex gap-0.5 mb-3">
+    {[...Array(5)].map((_, i) => (
+      <svg
+        key={i}
+        className="w-4 h-4 text-yellow-400"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))}
+  </div>
+);
 
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((t, i) => (
-            <div key={i} className="bg-white rounded-2xl p-5 border border-neutral-100">
-              <div className="flex gap-0.5 text-brand">
-                {Array.from({ length: 5 }).map((_, idx) => <StarIcon key={idx} className="w-4 h-4" />)}
-              </div>
-              <p className="mt-3 text-sm text-neutral-600 leading-relaxed">"{t.quote}"</p>
-              <div className="mt-4 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-brand text-neutral-900 text-xs font-bold flex items-center justify-center">
-                  {t.name.split(" ").map((n) => n[0]).join("")}
-                </div>
-                <div>
-                  <p className="text-xs font-semibold">{t.name}</p>
-                  <p className="text-[11px] text-neutral-400">{t.country}</p>
-                </div>
-              </div>
-            </div>
+const Card = ({
+  name,
+  location,
+  text,
+}: {
+  name: string;
+  location: string;
+  text: string;
+}) => (
+  <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+    <Stars />
+    <p className="text-sm text-gray-600 leading-relaxed mb-4">"{text}"</p>
+    <div className="flex items-center gap-2.5">
+      <div className="w-8 h-8 rounded-full bg-[#9CCA2D] flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
+        SA
+      </div>
+      <div>
+        <p className="text-sm font-semibold text-[#9CCA2D]">{name}</p>
+        <p className="text-xs text-gray-400">{location}</p>
+      </div>
+    </div>
+  </div>
+);
+
+export default function Testimonials() {
+  const col1 = reviews.slice(0, 3);
+  const col2 = reviews.slice(3, 6);
+  const col3 = reviews.slice(6, 8);
+
+  return (
+    <section className="bg-white py-16 px-6">
+      {/* Heading */}
+      <div className="text-center mb-12">
+        <p className="text-xs font-semibold tracking-widest text-[#9CCA2D] uppercase mb-2">
+          Testimonials
+        </p>
+        <h2 className="text-3xl font-bold text-gray-900">
+          Loved by Shoppers and Travelers Worldwide
+        </h2>
+      </div>
+
+      {/* Grid */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-4">
+          {col1.map((r, i) => (
+            <Card key={i} {...r} />
+          ))}
+        </div>
+        <div className="flex flex-col gap-4">
+          {col2.map((r, i) => (
+            <Card key={i} {...r} />
+          ))}
+        </div>
+        <div className="flex flex-col gap-4">
+          {col3.map((r, i) => (
+            <Card key={i} {...r} />
           ))}
         </div>
       </div>
