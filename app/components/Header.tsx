@@ -1,28 +1,32 @@
-import Image from "next/image";
-import ThemeToggle from "./ThemeToggle";
-import logo from "../../public/logo-06-removebg-preview.png";
-
-export default function Header() {
-  const links = ["How it works", "Verified prices", "Trust & safety", "For travelers"];
+// app/components/Navbar.tsx
+export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur border-b border-neutral-100 dark:border-neutral-800">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-1.5 text-lg font-bold">
-          <Image src={logo} alt="Flynget logo" className="h-20 w-auto" priority />
-        </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-600 dark:text-neutral-300">
-          {links.map((l) => (
-            <a key={l} href="#" className="hover:text-neutral-900 dark:hover:text-white transition-colors">{l}</a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-4 text-sm font-medium">
-          <ThemeToggle />
-          <a href="#" className="hidden sm:inline text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white">Sign in</a>
-          <a href="#" className="bg-brand hover:opacity-90 transition-opacity text-neutral-900 font-semibold px-4 py-2 rounded-full">
-            Request a product
-          </a>
+    <nav className="flex items-center justify-between px-13 h-16 border-b border-gray-100 bg-white">
+      <a href="/" className="flex items-center gap-2">
+        <div className="w-8 h-8 bg-[#9CCA2D] rounded-full flex items-center justify-center">
+          <svg className="w-4 h-4 fill-gray-900" viewBox="0 0 24 24">
+            <path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/>
+          </svg>
         </div>
+        <span className="text-lg font-bold tracking-tight text-gray-900">FlynGet</span>
+      </a>
+
+      <ul className="flex items-center gap-8">
+        {["How it works", "Market place", "Trust & safety", "For travelers"].map((link) => (
+          <li key={link}>
+            <a href="#" className="text-sm text-gray-600 hover:text-gray-900">{link}</a>
+          </li>
+        ))}
+      </ul>
+
+      <div className="flex items-center gap-3">
+        <button className="text-sm font-medium text-gray-700 border border-gray-300 rounded-md px-4 py-2 hover:border-gray-500">
+          Sign in
+        </button>
+        <button className="text-sm font-semibold text-gray-900 bg-[#9CCA2D] rounded-md px-4 py-2 hover:bg-[#8ab826]">
+          Request a product
+        </button>
       </div>
-    </header>
-  );
+    </nav>
+  )
 }
